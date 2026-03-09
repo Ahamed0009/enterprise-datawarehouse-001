@@ -1,0 +1,144 @@
+-- Create or replace a procedure to load stage Layer using INSERT
+CREATE OR REPLACE PROCEDURE stage.load_crm_cust_info()
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    start_time TIMESTAMP;
+    end_time TIMESTAMP;
+    batch_start_time TIMESTAMP;
+    batch_end_time TIMESTAMP;
+BEGIN
+    batch_start_time := NOW();
+    
+    RAISE NOTICE '================================================';
+    RAISE NOTICE 'Loading stage Layer';
+    RAISE NOTICE '================================================';
+    
+    RAISE NOTICE '------------------------------------------------';
+    RAISE NOTICE 'Loading CRM Table: crm_cust_info';
+    RAISE NOTICE '------------------------------------------------';
+
+    -- Load crm_cust_info
+    start_time := NOW();
+    
+    RAISE NOTICE '>> Truncating Table: stage.crm_cust_info';
+    TRUNCATE TABLE stage.crm_cust_info;
+
+    RAISE NOTICE '>> Inserting Data Into: stage.crm_cust_info';
+
+    -- Insert rows manually (from your CSV)
+    INSERT INTO stage.crm_cust_info(cst_id, cst_key, cst_firstname, cst_lastname, cst_marital_status, cst_gndr, cst_create_date) VALUES
+    (29480,'AW00029480','Nina','Raji','S',NULL,'2026-01-25'),
+    (29481,'AW00029481','Ivan','Suri','S',NULL,'2026-01-25'),
+    (29482,'AW00029482','Clayton','Zhang','M',NULL,'2026-01-25'),
+    (29483,NULL,NULL,'Navarro',NULL,NULL,'2026-01-25'),
+    (29483,'AW00029483','Marc','Navarro','M',NULL,'2026-01-27'),
+    (NULL,'13451235',NULL,NULL,NULL,NULL,NULL),
+    (NULL,'A01Ass',NULL,NULL,NULL,NULL,NULL);
+
+
+29401,AW00029401,Jésus,Gomez,M,M,2026-01-25
+29402,AW00029402,Damien,Andersen,S,M,2026-01-25
+29403,AW00029403,Erik,Romero,M,M,2026-01-25
+29404,AW00029404,Chloe,Ross,S,F,2026-01-25
+29405,AW00029405,Meagan,Vance,S,F,2026-01-25
+29406,AW00029406,Melissa,Ward,M,F,2026-01-25
+29407,AW00029407,Samantha,Smith,M,F,2026-01-25
+29408,AW00029408,Heather,Chen,M,F,2026-01-25
+29409,AW00029409,Kelsey,Pal,S,F,2026-01-25
+29410,AW00029410,Lucas,Price,S,M,2026-01-25
+29411,AW00029411,Cara,Lin,M,F,2026-01-25
+29412,AW00029412,Melinda,Gutierrez,M,F,2026-01-25
+29413,AW00029413,Arthur,Garcia,M,M,2026-01-25
+29414,AW00029414,Lydia,Patel,S,F,2026-01-25
+29415,AW00029415,Oscar,Flores,S,M,2026-01-25
+29416,AW00029416,Pedro,Ramos,S,M,2026-01-25
+29417,AW00029417,Kellie,Vazquez,M,F,2026-01-25
+29418,AW00029418,Lindsey,Sharma,S,F,2026-01-25
+29419,AW00029419,Carrie,Vazquez,S,F,2026-01-25
+29420,AW00029420,Linda,Travers,M,F,2026-01-25
+29421,AW00029421,Blake,Williams,S,M,2026-01-25
+29422,AW00029422,Ian,Adams,S,M,2026-01-25
+29423,AW00029423,Tony,Luo,S,M,2026-01-25
+29424,AW00029424,Erik,Gill,M,M,2026-01-25
+29425,AW00029425,Tommy,Xie,S,M,2026-01-25
+29426,AW00029426,Neil,Gomez,S,M,2026-01-25
+29427,AW00029427,Wesley,Chen,S,M,2026-01-25
+29428,AW00029428,Kristopher,Perez,M,M,2026-01-25
+29429,AW00029429,Marie,Suarez,S,F,2026-01-25
+29430,AW00029430,Donna,Goel,S,F,2026-01-25
+29431,AW00029431,Marie,Gutierrez,M,F,2026-01-25
+29432,AW00029432,Gabrielle,Roberts,M,F,2026-01-25
+29433,AW00029433,,,M,M,2026-01-25
+29433,AW00029433,Thomas,King,M,M,2026-01-27
+29434,AW00029434,Donna,Yuan,M,F,2026-01-25
+29435,AW00029435,Stanley,Rodriguez,M,M,2026-01-25
+29436,AW00029436,Adriana,Raman,S,F,2026-01-25
+29437,AW00029437,Haley,Bell,S,F,2026-01-25
+29438,AW00029438,Terrance,Fernandez,M,M,2026-01-25
+29439,AW00029439,Laura,Zhu,M,F,2026-01-25
+29440,AW00029440,Rafael,Cai,S,M,2026-01-25
+29441,AW00029441,Adriana,Patel,M,F,2026-01-25
+29442,AW00029442,Damien,Yuan,S,M,2026-01-25
+29443,AW00029443,Gabriel,Phillips,S,M,2026-01-25
+29444,AW00029444,Beth,Blanco,M,F,2026-01-25
+,SF566,,,,,
+29445,AW00029445,Bonnie,Lal,S,F,2026-01-25
+29446,AW00029446,Jamie,Ma,S,F,2026-01-25
+29447,AW00029447,Lindsay,Deng,S,F,2026-01-25
+29448,AW00029448,Lindsey,Yuan,S,F,2026-01-25
+29449,AW00029449,,Chen,S,,2026-01-25
+29449,AW00029449,Laura,Chen,S,F,2026-01-26
+29450,AW00029450,Bradley,Chande,S,M,2026-01-25
+29451,AW00029451,Geoffrey,Lopez,S,M,2026-01-25
+29452,AW00029452,Meredith,Romero,S,F,2026-01-25
+29453,AW00029453,Victor,Vazquez,M,M,2026-01-25
+29454,AW00029454,Victoria,Bradley,M,F,2026-01-25
+29455,AW00029455,Dawn,Zeng,M,F,2026-01-25
+29456,AW00029456,Lindsay,She,S,F,2026-01-25
+29457,AW00029457,Cynthia,Kapoor,S,F,2026-01-25
+29458,AW00029458,Danny,Moreno,S,M,2026-01-25
+29459,AW00029459,Marco,Malhotra,S,M,2026-01-25
+29460,AW00029460,Andres,Chander,M,M,2026-01-25
+29461,AW00029461,Colin,Xu,M,M,2026-01-25
+29462,AW00029462,Clinton,Hernandez,S,M,2026-01-25
+29463,AW00029463,Lucas,Gonzales,S,M,2026-01-25
+29464,AW00029464,Eugene,Gao,S,M,2026-01-25
+29465,AW00029465,Roy,Gill,S,M,2026-01-25
+29466,AW00029466,,,,,2026-01-25
+29466,AW00029466,Lance,Jimenez,M,,2026-01-26
+29466,AW00029466,Lance,Jimenez,M,M,2026-01-27
+29467,AW00029467,Monica,Mehta,M,F,2026-01-25
+29468,AW00029468,Jacqueline,Morris,M,F,2026-01-25
+29469,AW00029469,Dominique,Saunders,M,F,2026-01-25
+29470,AW00029470,Nathan,Roberts,S,,2026-01-25
+29471,AW00029471,Dana,Ortega,S,,2026-01-25
+29472,AW00029472,Lacey,Sharma,M,,2026-01-25
+29473,AW00029473,Carmen,,,,2026-01-25
+29473,AW00029473,Carmen,Subram,S,,2026-01-26
+29474,AW00029474,Jaime,Raje,M,,2026-01-25
+29475,AW00029475,Jared,Ward,S,,2026-01-25
+,PO25,,,,,
+29476,AW00029476,Elizabeth,Bradley,M,,2026-01-25
+29477,AW00029477,Neil,Ruiz,M,,2026-01-25
+29478,AW00029478,Darren,Carlson,S,,2026-01-25
+29479,AW00029479,Tommy,Tang,M,,2026-01-25
+29480,AW00029480,Nina,Raji,S,,2026-01-25
+29481,AW00029481,Ivan,Suri,S,,2026-01-25
+29482,AW00029482,Clayton,Zhang,M,,2026-01-25
+29483,AW00029483,,Navarro,,,2026-01-25
+29483,AW00029483,Marc,Navarro,M,,2026-01-27
+,13451235,,,,,
+,A01Ass,,,,,
+
+
+
+
+    end_time := NOW();
+    RAISE NOTICE '>> Load Duration: % seconds', EXTRACT(EPOCH FROM (end_time - start_time));
+    RAISE NOTICE '>> -------------';
+
+    batch_end_time := NOW();
+    RAISE NOTICE 'Stage Load Completed in % seconds', EXTRACT(EPOCH FROM (batch_end_time - batch_start_time));
+END;
+$$;
