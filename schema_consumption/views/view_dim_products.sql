@@ -19,7 +19,7 @@ Usage:
 -- =============================================================================
 -- DROP VIEW IF EXISTS consumption.dim_products;
 
-CREATE OR REPLACE VIEW consumption.dim_products AS
+CREATE OR REPLACE VIEW consumption.view_dim_products AS
 SELECT
     ROW_NUMBER() OVER (ORDER BY pn.prd_start_dt, pn.prd_key) AS product_key, -- Surrogate key
     pn.prd_id       AS product_id,

@@ -15,11 +15,11 @@ Usage:
 */
 
 -- =============================================================================
--- Create Dimension: consumption.dim_customers
+-- Create Dimension: consumption.view_dim_customers
 -- =============================================================================
--- DROP VIEW IF EXISTS consumption.dim_customers;
+-- DROP VIEW IF EXISTS consumption.view_dim_customers;
 
-CREATE OR REPLACE VIEW consumption.dim_customers AS
+CREATE OR REPLACE VIEW consumption.view_dim_customers AS
 SELECT
     ROW_NUMBER() OVER (ORDER BY cst_id) AS customer_key, -- Surrogate key
     ci.cst_id                          AS customer_id,

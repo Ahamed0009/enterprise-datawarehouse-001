@@ -19,7 +19,7 @@ Usage:
 -- =============================================================================
 -- DROP VIEW IF EXISTS consumption.fact_sales;
 
-CREATE OR REPLACE VIEW consumption.fact_sales AS
+CREATE OR REPLACE VIEW consumption.view_fact_sales AS
 SELECT
     sd.sls_ord_num  AS order_number,
     pr.product_key  AS product_key,
