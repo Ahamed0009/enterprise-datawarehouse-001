@@ -103,6 +103,11 @@ Consumption Layer (Star Schema)
 ↓
 BI / Analytics / Machine Learning
 
+---
+
+# Consumption Layer Table Mapping
+
+![Data Flow Diagram](docs/dim_fct_mapping.jpg)
 
 ---
 
@@ -235,12 +240,12 @@ Raw landing zone for source data.
 ### Tables
 
 
-stage.crm_sales_details
-stage.crm_cust_info
-stage.crm_prd_info
-stage.erp_cust_az12
-stage.erp_loc_a101
-stage.erp_px_cat_g1v2
+- stage.crm_sales_details
+- stage.crm_cust_info
+- stage.crm_prd_info
+- stage.erp_cust_az12
+- stage.erp_loc_a101
+- stage.erp_px_cat_g1v2
 
 
 ---
@@ -301,26 +306,26 @@ airflow/dags/
 ### Stage Loading DAGs
 
 
-load_crm_cust_info.py
-load_crm_prd_info.py
-load_crm_sales_details.py
-load_erp_cust_az12.py
-load_erp_loc_a101.py
-load_erp_px_cat_g1v2.py
+- load_crm_cust_info.py
+- load_crm_prd_info.py
+- load_crm_sales_details.py
+- load_erp_cust_az12.py
+- load_erp_loc_a101.py
+- load_erp_px_cat_g1v2.py
 
 
 ### Generic Loaders
 
 
-s3_to_stage_crm_loader.py
-s3_to_stage_erp_loader.py
+- s3_to_stage_crm_loader.py
+- s3_to_stage_erp_loader.py
 
 
 ### Connection Tests
 
 
-test_postgres_connection.py
-test_s3_connection.py
+- test_postgres_connection.py
+- test_s3_connection.py
 
 
 ### Responsibilities
@@ -334,7 +339,7 @@ test_s3_connection.py
 
 # Repository Structure
 
-
+```
 enterprise-datawarehouse-001
 │
 ├── airflow
@@ -358,7 +363,7 @@ enterprise-datawarehouse-001
 │
 ├── README.md
 └── LICENSE
-
+```
 
 ---
 
@@ -405,3 +410,12 @@ Potential improvements:
 # License
 
 MIT License
+
+---
+
+# Author
+
+***Yaseen Ahamed***
+- LinkedIn :  https://www.linkedin.com/in/ahamedyaseen0009/
+
+---
