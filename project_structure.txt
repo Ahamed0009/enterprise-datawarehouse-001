@@ -25,7 +25,8 @@ enterprise-datawarehouse-001
 │   ├── data_catalog.md
 │   ├── data_flow_diagram.jpg
 │   ├── dim_fct_mapping.jpg
-│   └── high_level_architecture.jpg
+│   ├── high_level_architecture.jpg
+│   └── naming_conventions.md
 ├── schema_consumption
 │   ├── ddl
 │   │   ├── ddl_dim_customers.sql
