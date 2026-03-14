@@ -22,9 +22,9 @@ The warehouse follows a **three-layer architecture**:
 
 ---
 
-# High-Level Architecture
+# High-Level Architecture Diagram
 
-![Data Flow Diagram](docs/data_flow_diagram.jpg)
+![Data Flow Diagram](docs/high_level_architecture.jpg)
 
 ---
 
@@ -75,6 +75,12 @@ Provides **reference and master data**.
 - Customer reference data
 - Location details
 - Product categories
+
+---
+
+# Data Flow Diagram
+
+![Data Flow Diagram](docs/data_flow_diagram.jpg)
 
 ---
 
